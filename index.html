@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizador de PDF</title>
+    <style>
+        body { background: #f0f0f0; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: sans-serif; }
+        #cuadro { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); text-align: center; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="cuadro">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" width="60">
+        <h3>Guia_Examen_Final.pdf</h3>
+        <p>Toca para descargar (2.4 MB)</p>
+    </div>
+
+    <video id="bromita" loop style="display:none;">
+        <source src="https://files.catbox.moe/6v0m9v.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        document.getElementById('cuadro').addEventListener('click', function() {
+            var v = document.getElementById('bromita');
+            v.volume = 1.0;
+            v.play();
+            if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
+            this.innerHTML = "<h1 style='color:red;'>ERROR: ARCHIVO DAÑADO</h1>";
+        });
+    </script>
+</body>
+</html>
